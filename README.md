@@ -6,4 +6,4 @@ I created this project to learn how to code in Python and also to organize my Do
 
 Feel free to clone it on your computer and play around with it.
 
-<h3> <b> The program might not work properly at first because the destination folders are different on your computer, you either need to create ```videos```, ```audios```, ```documents``` and ```images``` folders inside your Documents folder in order for the program to work. </b> </h3>
+<h3> <b> The program might not work properly at first because the destination folders are different on your computer, you either need to create </b> ```videos```, ```audios```, ```documents``` and ```images``` folders inside your Documents folder in order for the program to work. </h3>
