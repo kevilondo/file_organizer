@@ -84,49 +84,49 @@ class FileOrganizer(FileSystemEventHandler):
 
         for video in self.videos:
             if exists(join("/Users/kevin/Documents/videos", video)):
-                new_video_name = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + video 
+                new_video_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + video 
                 shutil.move(join(folder_to_track, video), join("/Users/kevin/Documents/videos", new_video_name))
             else:
                 shutil.move(join(folder_to_track,  video), join("/Users/kevin/Documents/videos", video))
 
         for audio in self.audios:
             if exists(join("/Users/kevin/Documents/audios", audio)):
-                new_audio_name = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + audio
+                new_audio_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + audio
                 shutil.move(join(folder_to_track, audio), join("/Users/kevin/Documents/audios", new_audio_name))
             else:
                 shutil.move(join(folder_to_track, audio), join("/Users/kevin/Documents/audios", audio))
 
         for image in self.images:
             if exists(join("/Users/kevin/Documents/images", image)):
-                new_image_name = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + image
+                new_image_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + image
                 shutil.move(join(folder_to_track, image), join("/Users/kevin/Documents/images", new_image_name))
             else:
                 shutil.move(join(folder_to_track, image), join("/Users/kevin/Documents/images", image))
         
         for document in self.documents:
             if exists(join("/Users/kevin/Documents/documents", document)):
-                new_document_name = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + document
+                new_document_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + document
                 shutil.move(join(folder_to_track, document), join("/Users/kevin/Documents/documents", new_document_name))
             else:
                 shutil.move(join(folder_to_track, document), join("/Users/kevin/Documents/documents", document))
         
         for software in self.softwares:
             if exists(join("/Users/kevin/Documents/softwares", software)):
-                new_software_name = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + software
+                new_software_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + software
                 shutil.move(join(folder_to_track, software), join("/Users/kevin/Documents/softwares", new_software_name))
             else:
                 shutil.move(join(folder_to_track, software), join("/Users/kevin/Documents/softwares", software))
 
         for compressedFile in self.compressedFiles:
             if exists(join("/Users/kevin/Documents/zip files", compressedFile)):
-                new_compressed_file = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + compressedFile
+                new_compressed_file = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + compressedFile
                 shutil.move(join(folder_to_track, compressedFile), join("/Users/kevin/Documents/zip files", new_compressed_file))
             else:
                 shutil.move(join(folder_to_track, compressedFile), join("/Users/kevin/Documents/zip files", compressedFile))
 
         for packetTracerFile in self.packetTracerFiles:
             if exists(join("/Users/kevin/Desktop/packetTracerFiles", packetTracerFile)):
-                new_packet_tracer = "(copy)" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + packetTracerFile
+                new_packet_tracer = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + packetTracerFile
                 shutil.move(join(folder_to_track, packetTracerFile), join("/Users/kevin/Desktop/packet tracer files", new_packet_tracer))
             else:
                 shutil.move(join(folder_to_track, packetTracerFile), join("/Users/kevin/Desktop/packet tracer files", packetTracerFile))
