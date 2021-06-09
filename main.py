@@ -38,7 +38,7 @@ class FileOrganizer(FileSystemEventHandler):
 
         self.getFilesinFolder()
 
-        videosExtensions = ["mp4", "avi", "mov", "wmv", "avi", "avchd", "flv", "mkv"]
+        videosExtensions = ["mp4", "avi", "mov", "wmv", "avi", "avchd", "m4v", "flv", "mkv"]
 
         audioExtensions = ["mp3", "m4a", "wav", "aac"]
 
