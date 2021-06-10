@@ -44,7 +44,7 @@ class FileOrganizer(FileSystemEventHandler):
 
         imageExtensions = ["jpg", "jpeg", "gif", "png"]
 
-        documentsExtensions = ["pdf", "docx", "doc", "pptx", "ppt", "xls", "xlsx", "csv", "xml", "html", "txt"]
+        documentsExtensions = ["pdf", "docx", "doc", "pptx", "ppt", "ppsx", "xls", "xlsx", "csv", "xml", "html", "txt"]
 
         softwareExtensions = ["exe", "dmg", "pkg"]
 
@@ -83,53 +83,33 @@ class FileOrganizer(FileSystemEventHandler):
         #we add a timestamp when moving files to avoid errors and duplicates
 
         for video in self.videos:
-            if exists(join("/Users/kevin/Documents/videos", video)):
-                new_video_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + video 
-                shutil.move(join(folder_to_track, video), join("/Users/kevin/Documents/videos", new_video_name))
-            else:
-                shutil.move(join(folder_to_track,  video), join("/Users/kevin/Documents/videos", video))
+            self.move_file_to_folder(video, "/Users/kevin/Documents/videos")
 
         for audio in self.audios:
-            if exists(join("/Users/kevin/Documents/audios", audio)):
-                new_audio_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + audio
-                shutil.move(join(folder_to_track, audio), join("/Users/kevin/Documents/audios", new_audio_name))
-            else:
-                shutil.move(join(folder_to_track, audio), join("/Users/kevin/Documents/audios", audio))
+            self.move_file_to_folder(audio, "/Users/kevin/Documents/audios")
 
         for image in self.images:
-            if exists(join("/Users/kevin/Documents/images", image)):
-                new_image_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + image
-                shutil.move(join(folder_to_track, image), join("/Users/kevin/Documents/images", new_image_name))
-            else:
-                shutil.move(join(folder_to_track, image), join("/Users/kevin/Documents/images", image))
+            self.move_file_to_folder(image, "/Users/kevin/Documents/images")
         
         for document in self.documents:
-            if exists(join("/Users/kevin/Documents/documents", document)):
-                new_document_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + document
-                shutil.move(join(folder_to_track, document), join("/Users/kevin/Documents/documents", new_document_name))
-            else:
-                shutil.move(join(folder_to_track, document), join("/Users/kevin/Documents/documents", document))
+            self.move_file_to_folder(document, "/Users/kevin/Documents/documents")
         
         for software in self.softwares:
-            if exists(join("/Users/kevin/Documents/softwares", software)):
-                new_software_name = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + software
-                shutil.move(join(folder_to_track, software), join("/Users/kevin/Documents/softwares", new_software_name))
-            else:
-                shutil.move(join(folder_to_track, software), join("/Users/kevin/Documents/softwares", software))
+            self.move_file_to_folder(software, "/Users/kevin/Documents/softwares")
 
         for compressedFile in self.compressedFiles:
-            if exists(join("/Users/kevin/Documents/zip files", compressedFile)):
-                new_compressed_file = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + compressedFile
-                shutil.move(join(folder_to_track, compressedFile), join("/Users/kevin/Documents/zip files", new_compressed_file))
-            else:
-                shutil.move(join(folder_to_track, compressedFile), join("/Users/kevin/Documents/zip files", compressedFile))
+            self.move_file_to_folder(compressedFile, "/Users/kevin/Documents/zip files")
 
         for packetTracerFile in self.packetTracerFiles:
-            if exists(join("/Users/kevin/Desktop/packetTracerFiles", packetTracerFile)):
-                new_packet_tracer = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + packetTracerFile
-                shutil.move(join(folder_to_track, packetTracerFile), join("/Users/kevin/Desktop/packet tracer files", new_packet_tracer))
-            else:
-                shutil.move(join(folder_to_track, packetTracerFile), join("/Users/kevin/Desktop/packet tracer files", packetTracerFile))
+            self.move_file_to_folder(packetTracerFile, "/Users/kevin/Desktop/packetTracerFiles")
+
+    #this function moves file to the appropriate folder and is called by the moveFile function
+    def move_file_to_folder(self, file_name, destination_folder):
+        if exists(join(destination_folder, file_name)):
+                new_filename = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + file_name
+                shutil.move(join(folder_to_track, file_name), join(destination_folder, new_filename))
+        else:
+                shutil.move(join(folder_to_track, file_name), join(destination_folder, file_name))
 
     def on_modified(self,event):
         self.moveFiles()
