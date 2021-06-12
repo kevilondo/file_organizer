@@ -146,5 +146,3 @@ except KeyboardInterrupt:
     observer.stop()
 
 observer.join()
-
-#fileOrganizer.moveFiles()
