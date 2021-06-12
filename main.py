@@ -106,10 +106,12 @@ class FileOrganizer(FileSystemEventHandler):
     #this function moves file to the appropriate folder and is called by the moveFile function
     def move_file_to_folder(self, file_name, destination_folder):
         if exists(join(destination_folder, file_name)):
-                new_filename = datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + file_name
-                shutil.move(join(folder_to_track, file_name), join(destination_folder, new_filename))
+            extension = file_name.split(".")[-1].lower()
+            file = file_name.split(".")[-2]
+            new_filename = file + "-" + datetime.datetime.now().strftime("%d%m%Y-%H%M%s") + "." + extension
+            shutil.move(join(folder_to_track, file_name), join(destination_folder, new_filename))
         else:
-                shutil.move(join(folder_to_track, file_name), join(destination_folder, file_name))
+            shutil.move(join(folder_to_track, file_name), join(destination_folder, file_name))
 
     def on_modified(self,event):
         self.moveFiles()
