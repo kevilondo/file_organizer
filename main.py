@@ -101,7 +101,7 @@ class FileOrganizer(FileSystemEventHandler):
             self.move_file_to_folder(compressedFile, "/Users/kevin/Documents/zip files")
 
         for packetTracerFile in self.packetTracerFiles:
-            self.move_file_to_folder(packetTracerFile, "/Users/kevin/Desktop/packetTracerFiles")
+            self.move_file_to_folder(packetTracerFile, "/Users/kevin/Desktop/packet tracer files")
 
     #this function moves file to the appropriate folder and is called by the moveFile function
     def move_file_to_folder(self, file_name, destination_folder):
